@@ -1,8 +1,8 @@
 # Name of the Distro to build (full name, without special charcters)
   if [ "$PVR" = yes ]; then
-    DISTRONAME="OpenELEC_PVR_Muschl"
+    DISTRONAME="OpenELEC_PVR"
   else
-    DISTRONAME="OpenELEC_Muschl"
+    DISTRONAME="OpenELEC"
   fi
 
 # Welcome Message for e.g. SSH Server (up to 5 Lines)
@@ -79,9 +79,7 @@
   OPTIMIZATIONS="speed"
 
 # Project CFLAGS
-PROJECT_CFLAGS="-mfpmath=sse -msse2 -msse4a -mno-3dnow -mno-sse3 -mno-ssse3 -mno-sse4 -mtune=btver1 -mabm -msahf -m96bit-long-double -mno-align-double"
-#Optimize for the dual cores, remove instructions that are core specific
-#and 32bit compatibility, highlight the default btver1 enabled options.
+  PROJECT_CFLAGS=""
 
 # LTO (Link Time Optimization) support
   LTO_SUPPORT="no"
@@ -162,7 +160,7 @@ PROJECT_CFLAGS="-mfpmath=sse -msse2 -msse4a -mno-3dnow -mno-sse3 -mno-ssse3 -mno
 # e.g. ADDITIONAL_DRIVERS="asix-ax887xx AF9035"
   ADDITIONAL_DRIVERS="asix-ax887xx"
   if [ "$PVR" = yes ]; then
-    ADDITIONAL_DRIVERS="$ADDITIONAL_DRIVERS AF9035 A867 aver_h826d RTL2832 hdhomerun-driver"
+    ADDITIONAL_DRIVERS="$ADDITIONAL_DRIVERS AF9035 A867 aver_h826d RTL2832 hdhomerun-driver vtuner-driver"
   fi
 
 # build with network support (yes / no)
@@ -268,8 +266,7 @@ PROJECT_CFLAGS="-mfpmath=sse -msse2 -msse4a -mno-3dnow -mno-sse3 -mno-ssse3 -mno
 # 'all' compiles all drivers;
 # 'all,!xxx,!yyy' de-selects previously selected drivers
 # "none" for disable LCD support
-# LCD_DRIVER="irtrans,imon,imonlcd,mdm166a,MtxOrb"
-LCD_DRIVER="none"
+  LCD_DRIVER="irtrans,imon,imonlcd,mdm166a,MtxOrb"
 
 # additional Firmware to use (dvb-firmware, misc-firmware, wlan-firmware)
 # Space separated list is supported,
