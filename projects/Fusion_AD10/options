@@ -79,11 +79,7 @@
   OPTIMIZATIONS="speed"
 
 # Project CFLAGS
-PROJECT_CFLAGS="-mtune=btver1"
-#-mfpmath=sse -mcx16 -mpopcnt -mmmx -msse -mssse3 -msse2 -msse4a -msse3 -mabm -msahf -mtune=btver1"
-# --with-arch-64 --with-cpu-64 --with-tune-64
-#Optimize for the dual cores, remove instructions that are core specific
-#and 32bit compatibility, highlight the default btver1 enabled options.
+PROJECT_CFLAGS=""
 
 # LTO (Link Time Optimization) support
   LTO_SUPPORT="no"
@@ -164,7 +160,7 @@ PROJECT_CFLAGS="-mtune=btver1"
 # e.g. ADDITIONAL_DRIVERS="asix-ax887xx AF9035"
   ADDITIONAL_DRIVERS="asix-ax887xx"
   if [ "$PVR" = yes ]; then
-    ADDITIONAL_DRIVERS="$ADDITIONAL_DRIVERS AF9035 A867 aver_h826d RTL2832 hdhomerun-driver"
+    ADDITIONAL_DRIVERS="$ADDITIONAL_DRIVERS AF9035 A867 aver_h826d RTL2832 hdhomerun-driver vtuner-driver"
   fi
 
 # build with network support (yes / no)
