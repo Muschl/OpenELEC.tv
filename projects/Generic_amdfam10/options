@@ -13,19 +13,19 @@
   GREETING4=""
 
 # Hostname for target system (openelec)
-  HOSTNAME="zbox"
+  HOSTNAME="tv"
 
 # Root password to integrate in the target system
-  ROOT_PASSWORD="zbox"
+  ROOT_PASSWORD="tv"
 
 # User to integrate in the target system
-  USER_NAME="zbox"
+  USER_NAME="tv"
 
 # User group to integrate in the target system
-  USER_GROUP="zbox"
+  USER_GROUP="tv"
 
 # User password to integrate in the target system
-  USER_PASSWORD="zbox"
+  USER_PASSWORD="tv"
 
 # The TARGET_CPU variable controls which processor should be targeted for
 # generated code.
@@ -47,7 +47,7 @@
       #               athlon-fx amdfam10 barcelona
       # (Intel CPUs)  atom core2 nocona
       #
-      TARGET_CPU="core2"
+      TARGET_CPU="amdfam10"
       ;;
 
     arm)
