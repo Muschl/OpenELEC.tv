@@ -33,6 +33,9 @@ CFLAGS=""
 CXXFLAGS=""
 LDFLAGS=""
 
+# Disable PPL version check as the PPL major version number has been bumped so the check fails.
+  PPL_CHECK="--disable-ppl-version-check"
+
 cd $PKG_BUILD
 mkdir -p objdir && cd objdir
 ../configure --host=$HOST_NAME \
@@ -45,16 +48,17 @@ mkdir -p objdir && cd objdir
              --with-mpfr=$ROOT/$TOOLCHAIN \
              --with-ppl=$ROOT/$TOOLCHAIN \
              --with-cloog=$ROOT/$TOOLCHAIN \
-             --with-libelf=$ROOT/$TOOLCHAIN \
              --disable-werror \
              --disable-multilib \
              --disable-libada \
              --disable-libssp \
+             $PPL_CHECK \
+             --enable-cloog-backend=isl \
              --enable-version-specific-runtime-libs \
              $WITH_64B_BFD \
              --enable-plugins \
-             --enable-gold=yes \
-             --enable-ld=default \
+             --disable-gold \
+             --enable-ld \
              --enable-lto \
              --disable-nls
 
@@ -64,6 +68,3 @@ make
 cp -v ../include/libiberty.h $SYSROOT_PREFIX/usr/include
 
 make install
-
-cp ${TARGET_PREFIX}ld.gold ${TARGET_PREFIX}gold
-cp $ROOT/$TOOLCHAIN/$TARGET_NAME/bin/ld.gold $ROOT/$TOOLCHAIN/$TARGET_NAME/bin/gold

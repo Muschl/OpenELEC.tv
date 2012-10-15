@@ -19,14 +19,14 @@
 ################################################################################
 
 PKG_NAME="vdr-dynamite"
-PKG_VERSION="27d7bed"
+PKG_VERSION="10d78a8"
 PKG_REV="1"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://projects.vdr-developer.org/projects/plg-dynamite"
 PKG_URL="$DISTRO_SRC/$PKG_NAME-$PKG_VERSION.tar.xz"
-PKG_DEPENDS="vdr udev"
-PKG_BUILD_DEPENDS="toolchain vdr udev"
+PKG_DEPENDS="vdr systemd"
+PKG_BUILD_DEPENDS="toolchain vdr systemd"
 PKG_PRIORITY="optional"
 PKG_SECTION="multimedia"
 PKG_SHORTDESC="vdr-dynamite turns the dvbdevices into hotpluggable devices. They can be dynamically attached and detached while vdr is running."
